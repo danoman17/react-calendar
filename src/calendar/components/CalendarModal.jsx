@@ -10,6 +10,7 @@ import es from 'date-fns/locale/es';
 
 import 'sweetalert2/dist/sweetalert2.min.css';
 import "react-datepicker/dist/react-datepicker.css";
+import { getEnvVariables } from '../../helpers';
 
 
 registerLocale('es', es);
@@ -25,7 +26,11 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement('#root');
+if( getEnvVariables().VITE_MODE !== 'test' ){
+
+  Modal.setAppElement('#root');
+}
+
 
 
 
